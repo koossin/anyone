@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main()
+{
+    int i = 0, temp = 0;
+    int buf[1000000] = {0};
+    
+    scanf_s("%d", &i);
+    for(int j=0; j<i; j++)
+    {
+        scanf_s("%[^/n]d", &buf[j]);
+    }
+    for(int j=0; j<i; j++)
+    {
+        for(int a=0; a<i-1; a++)
+        {
+            if(buf[a] < buf[a+1])
+            {
+                temp = buf[a];
+                buf[a] = buf[a+1];
+                buf[a+1] = temp;
+            }
+        }
+    }
+    printf("%d %d", buf[i-1], buf[0]);
+}
